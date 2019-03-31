@@ -13,6 +13,9 @@ public class Recipe {
     @Column(name = "recipe_name", length = 100)
     String recipeName;
 
+    @Column(name = "cookbook")
+    long cookbookID;
+
     @Column(name = "page")
     int page;
 
@@ -25,8 +28,9 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String recipeName, int page, int rating, String notes) {
+    public Recipe(String recipeName, long cookbookID, int page, int rating, String notes) {
         this.recipeName = recipeName;
+        this.cookbookID = cookbookID;
         this.page = page;
         this.rating = rating;
         this.notes = notes;
@@ -46,6 +50,14 @@ public class Recipe {
 
     public void setRecipeName(String recipeName) {
         this.recipeName = recipeName;
+    }
+
+    public long getCookbookID() {
+        return cookbookID;
+    }
+
+    public void setCookbookID(long cookbookID) {
+        this.cookbookID = cookbookID;
     }
 
     public int getPage() {

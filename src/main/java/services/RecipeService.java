@@ -1,6 +1,5 @@
 package services;
 
-import entities.Cookbook;
 import entities.Recipe;
 
 import javax.persistence.EntityManager;
@@ -15,9 +14,10 @@ public class RecipeService {
     private EntityManager em = emf.createEntityManager();
     private EntityTransaction tx = em.getTransaction();
 
-    public Recipe createRecipe(String recipeName, int page, int rating, String notes){
+    public Recipe createRecipe(String recipeName, long cookbookID, int page, int rating, String notes){
         Recipe recipe = new Recipe();
         recipe.setRecipeName(recipeName);
+        recipe.setCookbookID(cookbookID);
         recipe.setPage(page);
         recipe.setRating(rating);
         recipe.setNotes(notes);
@@ -45,7 +45,7 @@ public class RecipeService {
         return null;
     }
 
-//    public Recipe updateRecipe(String recipeName, int page, int rating, String notes){
+//    public Recipe updateRecipe(String recipeName, long cookbookID, int page, int rating, String notes){
 //        Recipe recipe = findRecipe(id);
 //        recipe.setRecipeName(recipeName);
 //        recipe.setPage(page);
